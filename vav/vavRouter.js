@@ -31,6 +31,7 @@ module.exports = (pool) => {
         res.status(404).send({ error: result.message });
       }
     } catch (err) {
+      console.log(err);
       res.status(500).send({ error: "Internal server error" });
     }
   });
