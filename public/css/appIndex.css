@@ -1,0 +1,208 @@
+.app-container {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(246 249 248)
+}
+
+.app-header {
+    text-align: center;
+    font-size: x-large;
+    background-color: #3f918b;
+    color: white;
+}
+
+.app-header p {
+    padding: 10px
+}
+
+.form-container-hidden {
+    display: none;
+}
+
+.form-container {
+    position: fixed;
+    top: 8%;
+    /* Distance from the top */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Offset the element to truly center it */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    background-color: white;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.record-list-view-container {
+    width: 80%;
+    margin: auto;
+}
+
+.record-list-view {
+    padding: 5px;
+    overflow: auto;
+}
+
+.record-list-view table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: auto;
+    width: 100%;
+}
+
+.record-list-view thead {
+    background-color: #ddd;
+}
+
+.record-list-view th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    background-color: #608083;
+    color: white;
+}
+
+.record-list-view td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-list-view tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.record-list-view tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+    color: blue;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    overflow: auto;
+}
+
+/* Pagination Controls - Items */
+.pagination-controls li {
+    margin: 0 10px;
+}
+
+/* Buttons */
+button {
+    background-color: #c3e5df;
+    color: #100505;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #758b87;
+    color: white;
+}
+
+/* Current Page Indicator */
+#current-page {
+    font-weight: bold;
+}
+
+/* Record per Page Dropdown */
+#record-per-page select {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+
+.notification-popup {
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 1000;
+    overflow: auto;
+}
+
+.fade-out {
+    animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.success {
+    background-color: #b0e3c4;
+    color: rgb(2, 50, 22);
+    border: 2px solid #052233;
+}
+
+.error {
+    background-color: #eeb3b3;
+    color: #8f1818;
+    border: 2px solid #aa040c;
+}
+
+.chart-container {
+    margin: auto;
+    width: 80%;
+}
+
+.chart-container p {
+    background-color: #3f918b;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: larger;
+}
+
+.chart-insider {
+    width: 80%;
+    margin: auto;
+}
+
+.footer {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    background-color: #3f918b;
+    padding: 5px;
+}
