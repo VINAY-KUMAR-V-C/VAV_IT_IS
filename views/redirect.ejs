@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messages</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    h2 {
+      color: #666;
+      font-size: 1.5em;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      console.log('Page loaded');
+      // You can add more JavaScript here if needed
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1><a href="<%= data.redirect %>"><%= data.message %></a></h1>
+  </div>
+</body>
+</html>
