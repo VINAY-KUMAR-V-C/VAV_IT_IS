@@ -15,6 +15,7 @@ var userUtils = {
                 result : req.session.vavSession.userDetails
             };
         }else{
+            console.log(req.session);
             res.status(401).send({ error: 'Session has expired or no session data found. Please log in again.',redirect : utils.urls.baseURL });
             return {isSuccess : false,};
         }
