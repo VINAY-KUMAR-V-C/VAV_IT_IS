@@ -7,6 +7,7 @@ var userUtils = {
         req.session["vavSession"] = {
             userDetails : data
         }
+        console.log(req.sesion.vavSession.userDetails);
     },
     getUserDetailsFromSession : function(req,res){
         if(req && req.session && req.session.vavSession && req.session.vavSession.userDetails){
