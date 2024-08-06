@@ -21,7 +21,7 @@ const psql = new Pool({
 app.use(session({
   store: new pgSession({
     pool: psql,                // Connection pool
-    tableName: 'user_sessions' // Use another table-name than the default "session" one
+    tableName: 'usersessions' // Use another table-name than the default "session" one
   }),
   secret: 'vav_it_is_XUV', // Replace with a strong, random secret key
   resave: false,
