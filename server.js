@@ -10,6 +10,11 @@ const session = require('express-session');
 const serverDetails = {
     port : 6969,
 }
+
+//-------------------------------------------------------------------------------------------------------------
+const psql = new Pool({
+    connectionString:utils.database.psql.psqlConnectionData.postgresUrl,
+});
 //-------------------------------------------------------------------------------------------------------------
 // Configure session middleware
 app.use(session({
@@ -22,10 +27,21 @@ app.use(session({
       maxAge: 1000 * 60 * 30 // Session max age in milliseconds (30 minutes)
     }
   }));
-//-------------------------------------------------------------------------------------------------------------
-const psql = new Pool({
-    connectionString:utils.database.psql.psqlConnectionData.postgresUrl,
-});
+// Configure session middleware
+app.use(session({
+  store: new pgSession({
+    pool: psql,                // Connection pool
+    tableName: 'user_sessions' // Use another table-name than the default "session" one
+  }),
+  secret: 'vav_it_is_XUV', // Replace with a strong, random secret key
+  resave: false,
+  saveUninitialized: false, // Recommend false to comply with laws that require permission before setting a cookie
+  cookie: {
+    secure: true, // Set to true if using HTTPS and false in localhost
+    httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
+    maxAge: 1000 * 60 * 30 // Session max age in milliseconds (30 minutes)
+  }
+}));
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
 app.use(express.json());
