@@ -19,17 +19,6 @@ const psql = new Pool({
 //-------------------------------------------------------------------------------------------------------------
 // Configure session middleware
 app.use(session({
-    secret: 'vav_it_is_XUV', // Replace with a strong, random secret key
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: true, // Set to true if using HTTPS and false in localhost
-      httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
-      maxAge: 1000 * 60 * 30 // Session max age in milliseconds (30 minutes)
-    }
-  }));
-// Configure session middleware
-app.use(session({
   store: new pgSession({
     pool: psql,                // Connection pool
     tableName: 'user_sessions' // Use another table-name than the default "session" one
