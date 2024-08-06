@@ -24,7 +24,7 @@ app.use(session({
   }));
 //-------------------------------------------------------------------------------------------------------------
 const psql = new Pool({
-    connectionString:utils.database.psql.psqlConnectionData.postgresUrl || utils.database.psql.psqlConnectionData.postgresPrismaUrl,
+    connectionString:utils.database.psql.psqlConnectionData.postgresUrl,
 });
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
