@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const { Pool } = require('pg');
 const session = require('express-session');
+const pgSession = require('connect-pg-simple')(session);
 //Notes :
 // make secure true once application is deployed in vercel
 //-------------------------------------------------------------------------------------------------------------
