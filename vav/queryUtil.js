@@ -26,7 +26,13 @@ const queries = {
       USEREMAIL VARCHAR(200) NOT NULL,
       USERPASSWORD VARCHAR(20) NOT NULL
     )`;
-
+const sesssiontable = `
+      CREATE TABLE IF NOT EXISTS usersessions (
+        sid VARCHAR NOT NULL PRIMARY KEY,
+        sess JSON NOT NULL,
+        expire TIMESTAMP NOT NULL
+      );
+    `;
   const createExpenseTableQuery = `
     CREATE TABLE IF NOT EXISTS EXPENSE (
       EXPID SERIAL PRIMARY KEY,
@@ -39,6 +45,8 @@ const queries = {
     )`;
     await pool.query(createUserDetailsTableQuery);
     await pool.query(createExpenseTableQuery);
+        await pool.query(sesssiontable);
+
     try {
       const res = await pool.query(queryText, values);
       response.result = res.rows;
