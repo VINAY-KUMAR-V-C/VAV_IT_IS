@@ -20,8 +20,10 @@ const psql = new Pool({
 // Configure session middleware
 app.use(session({
   store: new pgSession({
-    pool: psql,                // Connection pool
-    tableName: 'usersessions' // Use another table-name than the default "session" one
+    pool: psql,             
+    tableName: 'usersessions', 
+    serialize: (session) => JSON.stringify(session),
+    deserialize: (session) => JSON.parse(session)
   }),
   secret: 'vav_it_is_XUV', // Replace with a strong, random secret key
   resave: false,
