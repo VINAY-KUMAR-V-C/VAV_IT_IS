@@ -4,10 +4,17 @@ const queryUtil = require('./queryUtil');
 const utils = require('../utils');
 var userUtils = {
     addVAVUserInSession : function(req,data){
-        req.session["vavSession"] = {
-            userDetails : data
+        if (!req.session.vavSession) {
+            req.session.vavSession = {};
         }
-        console.log(req.session.vavSession.userDetails);
+        req.session.vavSession.userDetails = data;
+        req.session.save((err) => {
+            if (err) {
+              console.error('Failed to save session:', err);
+            } else {
+              console.log('Session saved successfully:', req.session.vavSession.userDetails);
+            }
+        });
     },
     getUserDetailsFromSession : function(req,res){
         if(req && req.session && req.session.vavSession && req.session.vavSession.userDetails){
