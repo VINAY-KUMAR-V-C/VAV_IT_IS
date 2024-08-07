@@ -52,7 +52,7 @@ var userUtils = {
         }
         delete queryRes.result[0].userpassword;
         queryRes.result = recordUtil.methods.getFieldIdVsValue(queryRes.result[0],modelDetails.fields);
-        userUtils.addVAVUserInSession(req,queryRes.result);
+        await userUtils.addVAVUserInSession(req,queryRes.result);
         return {
             isSuccess : true,
             message : "Login success"
