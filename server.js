@@ -34,7 +34,8 @@ app.use(session({
     secure: true, // Set to true if using HTTPS and false in localhost
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
     maxAge: 1000 * 60 * 30, // Session max age in milliseconds (30 minutes)
-      domain: 'vav-it-is.vercel.app'
+      domain: 'vav-it-is.vercel.app',
+      sameSite: 'none'
   }
 }));
 app.use((req, res, next) => {
