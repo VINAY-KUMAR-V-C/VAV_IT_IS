@@ -26,7 +26,12 @@ module.exports = (pool) => {
       var result = await commonUtil.isValidUser(res,req, pool);
       if(result.isSuccess){
         result.redirect = utils.urls.baseURL+'vav/expenseTracker/index';
-        res.status(200).send(result);
+        res.cookie('accessToken', null, {
+  httpOnly: true,       // Cookie cannot be accessed via JavaScript
+  expires: 18000000, // Cookie expiration date
+  secure: true,         // Cookie only sent over HTTPS
+  sameSite: 'none'      // Adjust based on your needs (e.g., 'lax', 'strict')
+}).status(200).send(result);
       }else{
         res.status(404).send({ error: result.message });
       }
