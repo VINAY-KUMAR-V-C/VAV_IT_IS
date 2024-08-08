@@ -33,20 +33,13 @@ app.use(session({
   cookie: {
     secure: true, // Set to true if using HTTPS and false in localhost
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
-    maxAge: 1000 * 60 * 30, // Session max age in milliseconds (30 minutes)
-          sameSite: 'lax' // Adjust based on your needs
-
+    maxAge: 1000 * 60 * 30 // Session max age in milliseconds (30 minutes)
   }
 }));
 app.use((req, res, next) => {
   console.log('Session ID:', req.sessionID);
   next();
 });
-const cors = require('cors');
-app.use(cors({
-  origin: utils.urls.baseURL,
-  credentials: true // Allow cookies to be sent and received
-}));
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
 app.use(express.json());
