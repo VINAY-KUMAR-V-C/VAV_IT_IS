@@ -42,6 +42,11 @@ app.use((req, res, next) => {
   console.log('Session ID:', req.sessionID);
   next();
 });
+const cors = require('cors');
+app.use(cors({
+  origin: utils.urls.baseURL,
+  credentials: true // Allow cookies to be sent and received
+}));
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
 app.use(express.json());
