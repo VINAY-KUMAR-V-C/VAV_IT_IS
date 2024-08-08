@@ -23,6 +23,10 @@ app.use(session({
     pool: psql,             
     tableName: 'usersessions'
   }),
+    // Custom deserialization
+    unserialize: function (session) {
+      return JSON.parse(session); // Deserialize from JSON string
+    },
   secret: 'vav_it_is_XUV', // Replace with a strong, random secret key
   resave: false,
   saveUninitialized: false, // Recommend false to comply with laws that require permission before setting a cookie
