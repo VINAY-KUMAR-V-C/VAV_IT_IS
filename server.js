@@ -32,6 +32,10 @@ app.use(session({
     maxAge: 1000 * 60 * 30 // Session max age in milliseconds (30 minutes)
   }
 }));
+app.use((req, res, next) => {
+  console.log('Session ID:', req.sessionID);
+  next();
+});
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
 app.use(express.json());
