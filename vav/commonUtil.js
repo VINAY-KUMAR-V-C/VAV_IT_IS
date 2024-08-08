@@ -8,6 +8,9 @@ var userUtils = {
             req.session.vavSession = {};
         }
         req.session.vavSession.userDetails = data;
+        // Serialize the session data before saving
+        req.session.vavSessionSerialized = JSON.stringify(req.session.vavSession);
+    
         await req.session.save((err) => {
             if (err) {
               console.error('Failed to save session:', err);
