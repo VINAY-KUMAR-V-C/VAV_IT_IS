@@ -33,7 +33,9 @@ app.use(session({
   cookie: {
     secure: true, // Set to true if using HTTPS and false in localhost
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
-    maxAge: 1000 * 60 * 30 // Session max age in milliseconds (30 minutes)
+    maxAge: 1000 * 60 * 30, // Session max age in milliseconds (30 minutes)
+          sameSite: 'lax' // Adjust based on your needs
+
   }
 }));
 app.use((req, res, next) => {
