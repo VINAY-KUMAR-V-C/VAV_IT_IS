@@ -1,6 +1,6 @@
 path = require('path');
 utils = {};
-utils.isProduction = false;
+utils.isProduction = true;
 //-------------------------------------------------------------------------------------------------------------
 utils["urls"] = {
     baseURL: utils.isProduction ? 'https://vav-it-is.vercel.app/' : 'http://localhost:6969/'
