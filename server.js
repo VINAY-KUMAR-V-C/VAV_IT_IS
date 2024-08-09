@@ -22,7 +22,8 @@ app.use(cookieParser());
 app.use(session({
   resave : true,
   saveUninitialized:true,
-  secret : "vav_it_is_XUV"
+  secret : "vav_it_is_XUV",
+  cookie: { maxAge: 1000 * 60 * 5 } // 5 mins
 }))
 // app.use(session({
 //   store: new pgSession({
