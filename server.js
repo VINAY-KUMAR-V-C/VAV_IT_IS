@@ -23,7 +23,7 @@ app.use(session({
   resave : true,
   saveUninitialized:true,
   secret : "vav_it_is_XUV",
-  cookie: { maxAge: 1000 * 60 * 30 } // 5 mins
+  cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
 }))
 // app.use(session({
 //   store: new pgSession({
