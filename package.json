@@ -19,11 +19,9 @@
   },
   "homepage": "https://github.com/VINUVARDHAN/VAV_IT_IS#readme",
   "dependencies": {
-    "connect-pg-simple": "^9.0.1",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
-    "express-session": "^1.17.1",
     "pg": "^8.11.5"
   }
 }
