@@ -45,6 +45,7 @@
     <script>
         clientUtils.data.baseURL = '<%- data.baseURL %>';
         clientUtils.data.app = <%- JSON.stringify(data.app) %>;
+        clientUtils.data.token = '<%- data.token %>';
         clientUtils.data.company = <%- JSON.stringify(data.company) %>;
         clientUtils.data.models['<%- data.model.id %>'] = <%- JSON.stringify(data.model) %>;
         async function load() {
@@ -62,7 +63,6 @@
             const formattedTime = now.toLocaleTimeString();
             document.getElementById('footer').innerText = `${formattedDate} ${formattedTime}`;
         }
-    
         setInterval(updateDateTime, 1000);
     </script>
 </body>
