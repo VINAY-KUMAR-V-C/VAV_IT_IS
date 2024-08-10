@@ -23,7 +23,6 @@ app.use(session({
   resave : true,
   saveUninitialized:true,
   secret : "vav_it_is_XUV",
-  sameSite: 'none',
   cookie: { maxAge: 1000 * 60 * 60 ,
           secure : utils.isProduction} // 1 hour
 }))
