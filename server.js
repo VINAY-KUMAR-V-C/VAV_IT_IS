@@ -23,8 +23,8 @@ app.use(session({
   resave : true,
   saveUninitialized:true,
   secret : "vav_it_is_XUV",
-  cookie: { maxAge: 1000 * 60 * 60 ,
-          secure : utils.isProduction} // 1 hour
+  secure : utils.isProduction,
+  cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
 }))
 // app.use(session({
 //   store: new pgSession({
@@ -53,11 +53,6 @@ app.use(session({
 //   console.log('Session ID:', req.sessionID);
 //   next();
 // });
-app.use((req, res, next) => {
-  console.log('Session ID:', req.sessionID);
-  console.log('Session Data:', req.session);
-  next();
-});
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
 app.use(express.json());
