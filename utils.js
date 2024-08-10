@@ -1,6 +1,6 @@
 path = require('path');
 utils = {};
-utils.isProduction = false;
+utils.isProduction = true;
 utils.tokenExpiry = 1000 * 60 * 30;
 //-------------------------------------------------------------------------------------------------------------
 utils["urls"] = {
