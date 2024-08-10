@@ -5,7 +5,6 @@ const utils = require('../utils');
 var userUtils = {
     addVAVUserInSession: async function (req, data) {
         req.session["vav"] = data;
-        console.log(data);
         await req.session.save((err) => {
             if (err) {
                 console.error('Failed to save session:', err);
@@ -13,7 +12,6 @@ var userUtils = {
         });
     },
     getUserDetailsFromSession: function (req, res) {
-        console.log(req.session);
         if (req && req.session && req.session.vav) {
             return {
                 isSuccess: true,
