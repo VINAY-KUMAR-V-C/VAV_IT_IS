@@ -3,8 +3,8 @@ const utils = require('./utils')
 const app = express();
 const path = require('path');
 const { Pool } = require('pg');
-const session = require('express-session');
-const cookieParser = require("cookie-parser");
+// const session = require('express-session');
+// const cookieParser = require("cookie-parser");
 //Notes :
 // make secure true once application is deployed in vercel
 //-------------------------------------------------------------------------------------------------------------
@@ -18,14 +18,14 @@ const psql = new Pool({
 });
 //-------------------------------------------------------------------------------------------------------------
 // // Configure session middleware
-app.use(cookieParser());
-app.use(session({
-  resave : true,
-  saveUninitialized:true,
-  secret : "vav_it_is_XUV",
-  secure : utils.isProduction,
-  cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
-}))
+// app.use(cookieParser());
+// app.use(session({
+//   resave : true,
+//   saveUninitialized:true,
+//   secret : "vav_it_is_XUV",
+//   secure : utils.isProduction,
+//   cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
+// }))
 // app.use(session({
 //   store: new pgSession({
 //     pool: psql,
