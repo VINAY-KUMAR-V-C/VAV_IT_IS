@@ -1,6 +1,7 @@
 path = require('path');
 utils = {};
-utils.isProduction = true;
+utils.isProduction = false;
+utils.tokenExpiry = 1000 * 60 * 30;
 //-------------------------------------------------------------------------------------------------------------
 utils["urls"] = {
     baseURL: utils.isProduction ? 'https://vav-it-is.vercel.app/' : 'http://localhost:6969/'
@@ -42,6 +43,26 @@ utils['company'] = {
 //-------------------------------------------------------------------------------------------------------------
 utils['session'] = {
     timeOfLive: 120
+}
+//-------------------------------------------------------------------------------------------------------------
+utils.methods = {
+    generateRandomId: function () {
+        var length = 12;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        const charactersLength = characters.length;
+
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+
+        return result;
+    },
+    addMillisecondsToCurrentTime: function (milliseconds) {
+        const now = new Date();
+        const futureDate = new Date(now.getTime() + milliseconds);
+        return futureDate;
+    }
 }
 //-------------------------------------------------------------------------------------------------------------
 
