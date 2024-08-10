@@ -49,10 +49,10 @@ clientUtils.methods = {
             clientUtils.methods.editRecord(modelId);
             return;
         }
-        var formEle = $("#form_" + modelId);
         var fieldIdVSValue = {};
         var fields = clientUtils.data.models[modelId].fields;
         for (let fieldId in fields) {
+            var formEle = $("#form_" + modelId);
             var fieldDetails = fields[fieldId];
             if (fieldDetails.clientDisplay) {
                 var fieldEle = formEle.find("#field_" + modelId + "_" + fieldId)[0];
