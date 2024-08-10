@@ -53,6 +53,11 @@ app.use(session({
 //   console.log('Session ID:', req.sessionID);
 //   next();
 // });
+app.use((req, res, next) => {
+  console.log('Session ID:', req.sessionID);
+  console.log('Session Data:', req.session);
+  next();
+});
 //-------------------------------------------------------------------------------------------------------------
 // Middleware to parse JSON bodies
 app.use(express.json());
