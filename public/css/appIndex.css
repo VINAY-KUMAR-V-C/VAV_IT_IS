@@ -21,7 +21,7 @@
 }
 
 .form-container {
-    position: fixed;
+    position: absolute;
     top: 8%;
     /* Distance from the top */
     left: 50%;
