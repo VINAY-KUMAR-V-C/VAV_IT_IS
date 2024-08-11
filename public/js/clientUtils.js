@@ -5,6 +5,11 @@ clientUtils.methods = {
     validateFields: function (fieldDetails, fieldValue) {
         var response = { isSuccess: true };
         if (fieldDetails.isMandatory) {
+            if(!fieldValue){
+                response.message = 'Field ' + fieldDetails.label + ' should not be empty !';
+                response.isSuccess = false;
+                return response;
+            }
             switch (fieldDetails.type) {
                 case 'number':
                     if (!(Number(fieldValue) > 0 && Number(fieldValue) < fieldDetails.maxSize)) {
