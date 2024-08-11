@@ -96,7 +96,8 @@ var userUtils = {
         }
         return {
             isSuccess: true,
-            message: "Signup success"
+            message: "Signup success",
+            token: token.token
         }
     },
     isEmailAlreadyPresent: async function (pool, email, modelDetails) {
