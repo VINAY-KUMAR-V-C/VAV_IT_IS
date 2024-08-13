@@ -1,5 +1,5 @@
 .app-container {
-    width: 80%;
+    width: 100%;
     margin: auto;
     padding: 10px;
     background-color: rgb(246 249 248)
@@ -195,7 +195,7 @@ button:hover {
 }
 
 .chart-insider {
-    width: 80%;
+    width: 500px;
     margin: auto;
 }
 
