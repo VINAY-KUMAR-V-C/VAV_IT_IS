@@ -213,4 +213,17 @@ button:hover {
         padding: 10px;
         background-color: rgb(246 249 248)
     }
+    .form-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #171616;
+    border-radius: 5px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    background-color: white;
+}
 }
