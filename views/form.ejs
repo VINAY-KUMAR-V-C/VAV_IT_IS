@@ -1,0 +1,65 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+</head>
+<body>
+    <div class="form">
+        <% if (data.model.id !== 'usersSignup' && data.model.id !== 'usersLogin') { %>
+            <h1><%= data.formType=='edit' ? 'Edit' : 'Create' %> <%= data.model.label %></h1>
+        <% }else{%> 
+            <h1><%= data.model.id === 'usersSignup' ? 'Sign Up' : 'Log In' %></h1>
+        <% } %>
+        <table id="form_<%= data.model.id %>">
+            <% Object.entries(data.model.fields).forEach(([fieldId, fieldDetails]) => { %>
+                <% if (fieldDetails.clientDisplay) { %>
+                    <tr>
+                        <td><%= fieldDetails.label %></td>
+                        <td>                    
+                        <% if (fieldDetails.type === 'number') { %>
+                            <input type="number" id="field_<%= data.model.id %>_<%= fieldId %>" inputmode="numeric" value="0" min="0" max="<%= fieldDetails.maxSize %>">
+                        <% } else if (fieldDetails.type === 'string' || fieldDetails.type === 'password') { %>
+                            <input type="<%= fieldDetails.type === 'password' ? 'password' : 'text' %>" id="field_<%= data.model.id %>_<%= fieldId %>" maxlength="<%= fieldDetails.maxSize %>">
+                        <% } else if (fieldDetails.type === 'date') { %>
+                            <input type="date" id="field_<%= data.model.id %>_<%= fieldId %>">
+                        <% } else if (fieldDetails.type === 'email') { %>
+                            <input type="email" id="field_<%= data.model.id %>_<%= fieldId %>">
+                        <% } else if (fieldDetails.type === 'dependencyField') { %>
+                            <select id="field_<%= data.model.id %>_<%= fieldId %>">
+                                <% Object.entries(data.model.preDefinedValues[fieldDetails.id]).forEach(([optionId, optionDetails]) => { %>
+                                    <option value="<%= optionId %>"><%= optionDetails.label %></option>
+                                <% }); %>
+                            </select>
+                        <% } %>
+                        </td>
+                    </tr>
+                <% } %>
+            <% }); %>
+            <% if (data.model.id === 'usersSignup' || data.model.id === 'usersLogin') { %>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="save" onclick="clientUtils.methods.saveRecord('<%= data.model.id %>' ,'create' ,'<%= data.model.id === 'usersLogin' ? 'users/login' : 'users' %>' )"><%= data.model.id === 'usersLogin' ? 'Login' : 'Signup' %></button>
+                    </td>
+                </tr>
+            <% }else{ %>  
+                <tr>
+                    <td><button class="cancel" onclick="clientUtils.methods.closeForm('<%= data.model.id %>')">Cancel</button></td>
+                    <td>
+                        <button class="save" onclick="clientUtils.methods.saveRecord('<%= data.model.id %>' ,'<%= data.formType %>' )">Save</button>
+                        <% if (data.formType === 'edit') { %>
+                            <button class="delete" onclick="clientUtils.methods.deleteRecord('<%= data.model.id %>')">Delete</button>
+                        <% } %>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+        <script>
+            clientUtils.data.models['<%- data.model.id %>'] = <%- JSON.stringify(data.model) %>;
+            clientUtils.data.formType = '<%- data.formType %>';
+            <% if (data.formType === 'edit' ) { %>
+                clientUtils.data.recordPreData = <%- JSON.stringify(data.record) %>;
+                clientUtils.methods.updateFormData('<%- data.model.id %>');
+            <% } %>
+        </script>
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    </div>
+</body>
