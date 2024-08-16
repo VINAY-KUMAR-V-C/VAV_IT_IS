@@ -22,7 +22,7 @@
         <div class="record-list-view-container">
             <ul id="pagination-controls" class="pagination-controls">
                 <li id="total-records">Total records : 0</li>
-                <li id="add-new"><button onclick="clientUtils.methods.getFormAndRender('create', '<%= data.model.id %>')">+</button></li>
+                <li id="add-new"><button class="button-active" onclick="clientUtils.methods.getFormAndRender('create', '<%= data.model.id %>')">+</button></li>
                 <li id="before"><button onclick="clientUtils.methods.getRecordsList(1, '<%= data.model.id %>')"><</button></li>
                 <li id="current-page">1</li>
                 <li id="after"><button onclick="clientUtils.methods.getRecordsList(2, '<%= data.model.id %>')">></button></li>
