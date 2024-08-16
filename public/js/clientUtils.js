@@ -269,15 +269,15 @@ clientUtils.methods = {
         var appId = modelDetails.appId;
         clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #total-records","Total records : "+response.totalRecordsCount);
         if (isPreviousNeeded) {
-            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #before","<button onclick=\'clientUtils.methods.getRecordsList(" + (page - 1) + "," + count + ",\"" + modelId + "\")\'><</button>");
+            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #before","<button class=\"button-active\" onclick=\'clientUtils.methods.getRecordsList(" + (page - 1) + "," + count + ",\"" + modelId + "\")\'><</button>");
         } else {
-            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #before","<button style=\"cursor:none\"><</button>");
+            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #before","<button class=\"button-inactive\"><</button>");
         }
         clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #current-page",page);
         if (isNextNeeded) {
-            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #after","<button onclick=\'clientUtils.methods.getRecordsList(" + (page + 1) + "," + count + ",\"" + modelId + "\")\'>></button>");
+            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #after","<button class=\"button-active\" onclick=\'clientUtils.methods.getRecordsList(" + (page + 1) + "," + count + ",\"" + modelId + "\")\'>></button>");
         } else {
-            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #after","<button style=\"cursor:none\">></button>");
+            clientUtils.methods.appendValueToEleById("#app-container-" + appId + " #after","<button class=\"button-inactive\">></button>");
         }
         var fieldDetails = modelDetails.fields;
         var displayOrder = modelDetails.displayOrder;
