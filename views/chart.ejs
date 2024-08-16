@@ -6,7 +6,7 @@
 <body>
     <div id="chart-<%= data.chartDetails.id %>" class="chart">
         <p><%= data.chartDetails.label %></p>
-        <button class="refresh-button" onclick="clientUtils.methods.getChartAndRender('expense')">Refresh</button>
+        <button class="button-active" onclick="clientUtils.methods.getChartAndRender('expense')">Refresh</button>
         <div class="chart-insider">
             <canvas id="myPieChart"></canvas>
         </div>
